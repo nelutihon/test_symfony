@@ -10,6 +10,7 @@ curl -sS https://getcomposer.org/installer | php
 php composer.phar install
  
 app/console doctrine:migrations:execute 20150403082947
+
 app/console doctrine:migrations:execute 20150403082947 --env=prod
 
 app/console --env=dev cache:clear
