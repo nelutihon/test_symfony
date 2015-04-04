@@ -15,6 +15,7 @@ app/console doctrine:migrations:execute 20150403082947
 app/console doctrine:migrations:execute 20150403082947 --env=prod
 
 app/console --env=dev cache:clear
+
 app/console --env=prod cache:clear
 
 
