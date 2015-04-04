@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block subheader -%} <h2 class="sub-header">Product list <a class="pull-right btn-sm" href="{{ path('catalog_product_new') }}">Create a new entry</a></h2> {% endblock %}
+
+{% block body -%}
+
+
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Productname</th>
+                    <th>Productprice</th>
+                    <th>Category</th>
+                    <th>Updatedat</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('catalog_product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                        <td>{{ entity.productName }}</td>
+                        <td>{{ entity.productPrice }}</td>
+                        <td>{{ entity.category }}</td>
+                        <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>
+                            <a data-toggle="modal" data-target="#myModal" class="btn btn-sm btn-default pull-left col-lg-offset-1" href="{{ path('catalog_product_show', { 'id': entity.id }) }}">show</a>
+                            <a class="btn btn-sm btn-success pull-left col-lg-offset-1" href="{{ path('catalog_product_edit', { 'id': entity.id }) }}">edit</a>
+                            {{ form_start(deleteForms[entity.id], {'attr' : { 'class':'pull-left col-lg-offset-1 deleteForm' } }) }}
+                            {{ form_widget(deleteForms[entity.id].submit, { 'attr': {'class': 'btn btn-danger btn-sm btn-delete', 'type': 'button'} }) }}
+                            {{ form_end(deleteForms[entity.id]) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/nelucatalog/js/scripts.js') }}"></script>
+{% endblock %}

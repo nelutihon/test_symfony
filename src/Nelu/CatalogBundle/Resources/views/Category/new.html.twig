@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Category creation <a href="{{ path('catalog_category') }}" class="btn pull-right">Back to the list</a></h1>
+
+    <fieldset>
+        <legend></legend>
+        
+        {{ form(form) }}
+        
+    </fieldset>
+
+{% endblock %}

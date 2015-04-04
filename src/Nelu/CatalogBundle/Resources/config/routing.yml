@@ -1,0 +1,13 @@
+nelu_catalog_category:
+    resource: "@NeluCatalogBundle/Controller/CategoryController.php"
+    type:     annotation
+    prefix:   /
+nelu_catalog_product:
+    resource: "@NeluCatalogBundle/Controller/ProductController.php"
+    type:     annotation
+    prefix:   /
+    
+nelu_catalog_empty:
+    resource: "@NeluCatalogBundle/Controller/EmptyController.php"
+    type:     annotation
+    prefix:   /

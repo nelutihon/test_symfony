@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Category edit <a href="{{ path('catalog_category') }}" class="btn pull-right">Back to the list</a></h1>    
+    <fieldset>
+        <legend></legend>
+        {{ form_start(edit_form, {attr: {'class':'form-horizontal'}}) }}
+        {{ form_widget(edit_form) }}
+        {{ form_end(edit_form) }}
+        
+    </fieldset>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Product creation <a href="{{ path('catalog_product') }}" class="btn pull-right">Back to the list</a></h1>
+    <fieldset>
+        <legend></legend>
+        {{ form_start(form, {attr: {'class':'form-horizontal'}}) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}        
+    </fieldset>
+{% endblock %}

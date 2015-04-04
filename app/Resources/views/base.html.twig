@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% stylesheets
+            '%kernel.root_dir%/Resources/public/css/bootstrap.min.css'
+            '%kernel.root_dir%/Resources/public/css/dashboard.css'
+        %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Project name</a>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ path('catalog_category') }}" class="btn pull-right">Categories</a></li>
+                    <li><a href="{{ path('catalog_product') }}" class="btn pull-right">Products</a></li>
+                </ul>  
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-9 col-md-10 main col-lg-12">
+                <h1 class="page-header">Catalog</h1>
+
+            {% block subheader %}{% endblock %}
+        {% block body %}{% endblock %}
+    </div>
+</div>
+</div>
+
+{% javascripts
+                '%kernel.root_dir%/Resources/public/js/jquery.min.js'
+                '%kernel.root_dir%/Resources/public/js/bootstrap.min.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>
